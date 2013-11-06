@@ -1,0 +1,25 @@
+<html>
+<head>
+<title>Search results
+</title>
+</head>
+<body>
+<h1>Search results</h1>
+<table border="1">
+<tr>
+<td width="40%"><p align="center"><i><b>Word</b></i></td>
+</tr>
+<% @words.each do |word| %>
+<tr>
+<td>
+<a href="
+<%=word.id%>
+">
+<%=word.word%>
+</a>
+</td>
+</tr>
+<% end %>
+</table>
+<p> <a href="/words"> Back</a> </body>
+</html>

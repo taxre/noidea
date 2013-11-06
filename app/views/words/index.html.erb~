@@ -1,0 +1,51 @@
+<h1>Listing words</h1>
+
+
+<%= javascript_include_tag "prototype" %>
+<div class="element_links">
+<% for char in 'A'..'Z' %>
+<%= link_to_remote( "#{char}",
+                         :update => "content",
+                         :char => char,
+                         :url =>{:action => :alp_search }) %> </li>
+                         <% end %> 
+                         <div id="content">
+                         <%= @content %>
+                         </div>
+                    <p>
+<ul>
+
+<h3>Enter keyword</h3>
+<form action ="words/search" method="post">
+<input name = "key" type="input" />
+<input value="Send" type="submit"/>
+</form>
+
+  <table>
+  <thead>
+    <tr>
+      <th>Word</th>
+      <th>Wordtype</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @words.each do |word| %>
+      <tr>
+        <td><%= word.word %></td>
+        <td><%= word.wordtype %></td>
+        <td><%= word.description %></td>
+        <td><%= link_to 'Show', word %></td>
+      </tr>
+   <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+
